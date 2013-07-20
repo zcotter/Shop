@@ -1,0 +1,27 @@
+
+---
+products:
+  columns:
+  - id
+  - name
+  - description
+  - price
+  - quantity
+  - created_at
+  - updated_at
+  - photo_file_name
+  - photo_content_type
+  - photo_file_size
+  - photo_updated_at
+  records: 
+  - - '980190968'
+    - this is the name
+    - this is the desc
+    - '11.0'
+    - '1'
+    - '2013-07-14 03:56:58.005881'
+    - '2013-07-14 03:56:58.005881'
+    - 2012-03-04_10.35.20.jpg
+    - image/jpeg
+    - '3753873'
+    - '2013-07-14 03:56:56.155775'

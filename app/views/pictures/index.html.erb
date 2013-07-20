@@ -1,0 +1,33 @@
+<%- model_class = Product -%>
+<div class="page-header">
+  <h1><%= "#{@product.name}'s Pictures" %></h1>
+</div>
+<div class="well">
+  <% picturesPerRow = 6 %>
+  <% i = 0 %>
+  <% while i < @product.pictures.length %>
+      <% j = 0 %>
+      <ul class="thumbnails">
+        <% while j < picturesPerRow and i + j < @product.pictures.length %>
+            <% picture = @product.pictures[i + j] %>
+            <li class="span2">
+              <div class="thumbnail">
+                <%= image_tag(picture.photo.url(:small), :class => "img-rounded") %>
+                <div class="clearfix"><br/></div>
+                <%= link_to "Destroy",
+                            [@product, picture],
+                            :method => :delete,
+                            :class => 'btn btn-danger' %>
+              </div>
+            </li>
+            <% j += 1 %>
+        <% end %>
+      </ul>
+      <div class="clearfix"><br/></div>
+      <% i += picturesPerRow %>
+  <% end %>
+  <%= form_for ([@product, @product.pictures.build]), :html => {:class => 'form-horizontal', :multipart => true} do |f| %>
+      <%= f.file_field :photo, :class => 'text_area' %>
+      <%= f.submit "Add Picture", :class => 'btn btn-primary' %>
+  <% end %>
+</div>
