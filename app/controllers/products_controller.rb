@@ -5,10 +5,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    rowsPerPage = 6
-    @productsPerRow = 3
-    productsPerPage = rowsPerPage * @productsPerRow
-    @products = Product.order("name").page(params[:page]).per(productsPerPage)
+    productListing()
+    @products = Product.order("name")
+    @products = paginate(@products)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
