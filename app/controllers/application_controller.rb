@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :get_categories
+
   def productListing
     @rowsPerPage = 6
     @productsPerRow = 3
@@ -8,5 +10,9 @@ class ApplicationController < ActionController::Base
 
   def paginate(stuffToPaginate)
     return stuffToPaginate.page(params[:page]).per(@productsPerPage)
+  end
+
+  def get_categories
+    @categories = Category.order("name")
   end
 end
