@@ -1,17 +1,18 @@
 require 'Forgery'
 require 'open-uri'
 
-Product.destroy_all
-Picture.destroy_all
-Category.destroy_all
+#Product.destroy_all
+#Picture.destroy_all
+#Category.destroy_all
 numProducts = rand(300) + 200
 
 categories = ['animals','city','nature','food','technics','transport']
-categories.each do |cat|
-   Category.create(name: cat)
-end
-
-for i in 1..5 do
+#categories.each do |cat|
+#   Category.create(name: cat)
+#end
+puts "seeding #{numProducts} products"
+for i in 1..numProducts do
+  puts "creating product #{i}/#{numProducts}"
   name = Forgery(:lorem_ipsum).words(rand(6) + 1, {:random => true}).split(" ").map {|word| word.capitalize}.join(" ")
   description = Forgery(:lorem_ipsum).words(rand(200) + 1)
   a = 10**(rand(7))
@@ -29,10 +30,7 @@ for i in 1..5 do
   x = rand(500) + 300
   y = rand(500) + 300
   numPics = rand(20) + 1
-
-
-
-
+  puts "creating #{numPics} pics for this product"
   for j in 0..numPics do
     picture = product.pictures.create()
     open("http://lorempixel.com/800/500/#{cat}/", 'rb') {
@@ -40,5 +38,4 @@ for i in 1..5 do
     }
     picture.save
   end
-
 end
