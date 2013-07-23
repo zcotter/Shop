@@ -1,4 +1,3 @@
-require 'Forgery'
 require 'open-uri'
 
 #Product.destroy_all
