@@ -6,9 +6,9 @@ require 'open-uri'
 numProducts = 52#rand(300) + 200
 
 categories = ['animals','city','nature','food','technics','transport']
-#categories.each do |cat|
-#   Category.create(name: cat)
-#end
+categories.each do |cat|
+   Category.create(name: cat)
+end
 puts "seeding #{numProducts} products"
 for i in 1..numProducts do
   puts "creating product #{i}/#{numProducts}"
