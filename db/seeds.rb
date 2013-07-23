@@ -4,7 +4,7 @@ require 'open-uri'
 #Product.destroy_all
 #Picture.destroy_all
 #Category.destroy_all
-numProducts = rand(300) + 200
+numProducts = 52#rand(300) + 200
 
 categories = ['animals','city','nature','food','technics','transport']
 #categories.each do |cat|
