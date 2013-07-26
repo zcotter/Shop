@@ -20,6 +20,7 @@ gem 'yaml_db'
 gem 'forgery', '0.5.0'
 gem 'paperclip', '~> 3.0'
 gem 'kaminari'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
