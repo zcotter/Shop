@@ -38,7 +38,9 @@
             <div class="clearfix"><br/></div>
             <% i += picturesPerRow %>
         <% end %>
-        <div class="row-fluid"><%= link_to "Add or Remove Pictures", product_pictures_path(@product), :class => "btn btn-primary" %></div>
+        <% if action_name != "new" %>
+            <div class="row-fluid"><%= link_to "Add or Remove Pictures", product_pictures_path(@product), :class => "btn btn-primary" %></div>
+        <% end %>
       </div>
 
     </div>
