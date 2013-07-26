@@ -1,9 +1,9 @@
 require 'open-uri'
 
-#Product.destroy_all
-#Picture.destroy_all
-#Category.destroy_all
-numProducts = 52#rand(300) + 200
+Product.destroy_all
+Picture.destroy_all
+Category.destroy_all
+numProducts = 2#rand(300) + 200
 
 categories = ['animals','city','nature','food','technics','transport']
 categories.each do |cat|
