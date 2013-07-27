@@ -5,6 +5,7 @@
         <th><%= f.label :name %></th>
         <th><%= f.label :price %></th>
         <th><%= f.label :quantity %></th>
+        <th><%= f.label :category %></th>
       </tr>
       </thead>
       <tbody>
@@ -12,6 +13,7 @@
         <td><%= f.text_field :name, :class => 'text_field' %></td>
         <td><%= f.text_field :price, :class => 'text_field' %></td>
         <td><%= f.number_field :quantity, :class => 'number_field' %></td>
+        <td><%= f.collection_select :category_id, @categories, :id, :name, :prompt => true %></td>
       </tr>
       </tbody>
     </table>
