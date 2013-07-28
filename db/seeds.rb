@@ -1,22 +1,28 @@
 require 'open-uri'
 
-Product.destroy_all
-Picture.destroy_all
-Category.destroy_all
-numProducts = 2#rand(300) + 200
-
-categories = ['animals','city','nature','food','technics','transport']
-categories.each do |cat|
-   Category.create(name: cat)
+categories = ['animals', 'city', 'nature', 'food', 'technics', 'transport']
+unless ENV["KEEP_OLD_RECORDS"]
+  Product.destroy_all
+  Picture.destroy_all
+  Category.destroy_all
+  categories.each do |cat|
+    Category.create(name: cat)
+  end
 end
+
+
+numProducts = Integer(ENV["SEED_NUMBER"])
+
+
+
 puts "seeding #{numProducts} products"
 for i in 1..numProducts do
   puts "creating product #{i}/#{numProducts}"
-  name = Forgery(:lorem_ipsum).words(rand(6) + 1, {:random => true}).split(" ").map {|word| word.capitalize}.join(" ")
+  name = Forgery(:lorem_ipsum).words(rand(6) + 1, {:random => true}).split(" ").map { |word| word.capitalize }.join(" ")
   description = Forgery(:lorem_ipsum).words(rand(200) + 1)
   a = 10**(rand(7))
   b = 10**(rand(7))
-  price = Forgery(:monetary).money :min => [a,b].min, :max => [a,b].max
+  price = Forgery(:monetary).money :min => [a, b].min, :max => [a, b].max
   quantity = rand(500) + 1
   cat = categories[rand(categories.length)]
   product = Product.create(name: name,
