@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     productListing()
-    @products = Product.order("name")
+    @products = Product.search(params[:search]).order("name")
     @products = paginate(@products)
 
     respond_to do |format|
