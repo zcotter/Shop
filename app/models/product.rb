@@ -5,7 +5,8 @@ class Product < ActiveRecord::Base
 
   def self.search(searchTerm)
     if searchTerm
-      return where("lower(#{:name}) like ?", "%#{searchTerm.downcase}%")
+      searchClause = "%#{searchTerm.downcase}%"
+      return where("lower(#{:name}) like ? OR lower(#{:description}) like ?", searchClause, searchClause)
     else
       return where(nil)
     end
