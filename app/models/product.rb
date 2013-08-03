@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
     if searchTerm
       return where("lower(#{:name}) like ?", "%#{searchTerm.downcase}%")
     else
-      return where("id > 0")
+      return where(nil)
     end
   end
 end
