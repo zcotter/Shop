@@ -3,6 +3,7 @@
   <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+
 <%= render :partial => 'productIndex' %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_product_path,
