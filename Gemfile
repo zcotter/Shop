@@ -13,7 +13,6 @@ gem 'yaml_db'
 gem 'forgery', '0.5.0'
 gem 'paperclip', '~> 3.0'
 gem 'kaminari'
-gem 'settingslogic'
 
 group :production do
   gem 'aws-sdk'
