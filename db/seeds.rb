@@ -18,13 +18,24 @@ def createStore
   puts "Created store"
 end
 
+def createSetting()
+  Setting.destroy_all
+  Setting.create(rows_per_page: 6,
+                 products_per_row: 2,
+                 page_width: 90,
+                 html_background: "#DDD",
+                 page_background: "#FFF")
+end
+
 categories = ['animals', 'city', 'nature', 'food', 'technics', 'transport']
 unless ENV["KEEP_OLD_RECORDS"]
   Product.destroy_all
   Picture.destroy_all
   Category.destroy_all
   Store.destroy_all
+  Setting.destroy_all
   createStore()
+  createSetting()
   categories.each do |cat|
     Category.create(name: cat)
   end
