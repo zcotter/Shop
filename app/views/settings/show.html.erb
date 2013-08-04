@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rows per page:</b>
+  <%= @setting.rows_per_page %>
+</p>
+
+<p>
+  <b>Products per row:</b>
+  <%= @setting.products_per_row %>
+</p>
+
+<p>
+  <b>Page width:</b>
+  <%= @setting.page_width %>
+</p>
+
+<p>
+  <b>Html background:</b>
+  <%= @setting.html_background %>
+</p>
+
+<p>
+  <b>Page background:</b>
+  <%= @setting.page_background %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

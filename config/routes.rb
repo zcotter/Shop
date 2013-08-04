@@ -1,4 +1,7 @@
 Shop::Application.routes.draw do
+  resources :settings
+
+
   root to: "stores#index"
   resources :stores
 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rows_per_page: 1
+  products_per_row: 1
+  page_width: 1
+  html_background: MyString
+  page_background: MyString
+
+two:
+  rows_per_page: 1
+  products_per_row: 1
+  page_width: 1
+  html_background: MyString
+  page_background: MyString
