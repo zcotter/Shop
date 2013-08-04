@@ -1,31 +1,3 @@
-<h1>Listing settings</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
-  <tr>
-    <th>Rows per page</th>
-    <th>Products per row</th>
-    <th>Page width</th>
-    <th>Html background</th>
-    <th>Page background</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @settings.each do |setting| %>
-  <tr>
-    <td><%= setting.rows_per_page %></td>
-    <td><%= setting.products_per_row %></td>
-    <td><%= setting.page_width %></td>
-    <td><%= setting.html_background %></td>
-    <td><%= setting.page_background %></td>
-    <td><%= link_to 'Show', setting %></td>
-    <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
-    <td><%= link_to 'Destroy', setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Setting', new_setting_path %>
+<%= render 'form' %>
