@@ -1,0 +1,6 @@
+Settings:
+rows_per_page:integer
+products_per_row:integer
+page_width:integer
+html_background:string
+page_background:string

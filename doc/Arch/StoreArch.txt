@@ -1,0 +1,8 @@
+Store has:
+Name:string
+Owner:string (ie company, person)
+Email:string
+Logo:paperclip
+Cover:paperclip
+Location:string
+Description:text
