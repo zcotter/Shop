@@ -2,10 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :get_categories
   before_filter :get_store
+  before_filter :get_settings
 
   def productListing
-    @rowsPerPage = 6
-    @productsPerRow = 3
+    @rowsPerPage = @settings.rows_per_page
+    @productsPerRow = @settings.products_per_row
     @productsPerPage = @rowsPerPage * @productsPerRow
   end
 
@@ -21,6 +22,13 @@ class ApplicationController < ActionController::Base
     @store = Store.first
     if !@store
       redirect_to new_store_path
+    end
+  end
+
+  def get_settings
+    @settings = Setting.first
+    if !@settings
+      redirect_to new_setting_path
     end
   end
 end
