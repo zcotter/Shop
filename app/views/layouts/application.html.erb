@@ -17,9 +17,11 @@
         <span class="icon-bar"></span>
       </a>
 
-      <%= link_to "Store", stores_path, :class => "brand" %>
+
       <div class="nav-collapse">
         <ul class="nav">
+          <li><%= link_to("Store", stores_path, :class => "brand")%></li>
+          <li><%= image_tag @store.logo.url(:small), :class => "brand" %></li>
 
           <li><%= link_to "Browse Products", products_path %></li>
           <li class="dropdown">
