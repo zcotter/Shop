@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     productListing()
+    @searchTerm = params[:search]
     @products = Product.search(params[:search]).order("name")
     @products = paginate(@products)
 

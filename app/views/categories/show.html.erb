@@ -1,1 +1,11 @@
+<div class="page-header">
+  <h1>
+    <% if @category.nil? %>
+        All Products
+    <% else %>
+        <%=  "Category: \"#{@category.name}\""  %>
+    <% end %>
+  </h1>
+</div>
+
 <%= render :partial => 'products/productIndex' %>
