@@ -2,11 +2,14 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @stores }
+    @store = Store.first
+    if @store
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @store }
+      end
+    else
+      redirect_to new_store_path
     end
   end
 

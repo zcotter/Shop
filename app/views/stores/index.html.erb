@@ -1,31 +1,37 @@
-<h1>Listing stores</h1>
+<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+<div class="row-fluid">
+  <%= image_tag @store.cover.url(:large), :class => "span12" %>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Owner</th>
-    <th>Email</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @stores.each do |store| %>
-  <tr>
-    <td><%= store.name %></td>
-    <td><%= store.owner %></td>
-    <td><%= store.email %></td>
-    <td><%= store.location %></td>
-    <td><%= store.description %></td>
-    <td><%= link_to 'Show', store %></td>
-    <td><%= link_to 'Edit', edit_store_path(store) %></td>
-    <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<h1 class="row-fluid">
+  <%= @store.name %>
+</h1>
+<br/>
+<p>
+  <%= @store.description %>
+</p>
+  <br/>
+<div class="row-fluid">
+  <p class="span4 text-left">
+    <b>Owner:</b>
+    <%= @store.owner %>
+  </p>
 
-<br />
+  <p class="span4 text-center">
+    <b>Email:</b>
+    <%= @store.email %>
+  </p>
 
-<%= link_to 'New Store', new_store_path %>
+  <p class="span4 text-right">
+    <b>Location:</b>
+    <%= @store.location %>
+  </p>
+</div>
+
+
+
+<%= link_to 'Enter', products_path , :class => "btn btn-large btn-primary"%>
+<%= link_to 'Edit', edit_store_path(@store) , :class => "btn pull-right"%>
+</div>
