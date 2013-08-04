@@ -24,11 +24,14 @@ class StoresController < ApplicationController
   # GET /stores/new
   # GET /stores/new.json
   def new
-    @store = Store.new
+    allowed = Store.first.nil?
+    if allowed
+      @store = Store.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @store }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @store }
+      end
     end
   end
 
@@ -40,15 +43,18 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = Store.new(params[:store])
+    allowed = Store.first.nil?
+    if allowed
+      @store = Store.new(params[:store])
 
-    respond_to do |format|
-      if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render json: @store, status: :created, location: @store }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @store.save
+          format.html { redirect_to @store, notice: 'Store was successfully created.' }
+          format.json { render json: @store, status: :created, location: @store }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @store.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
