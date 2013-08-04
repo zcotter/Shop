@@ -2,12 +2,16 @@ class SettingsController < ApplicationController
   # GET /settings
   # GET /settings.json
   def index
-    @settings = Setting.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @settings }
+    @setting = Setting.first
+    if @setting
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @setting }
+      end
+    else
+      redirect_to new_setting_path
     end
+
   end
 
   # GET /settings/1
@@ -24,11 +28,14 @@ class SettingsController < ApplicationController
   # GET /settings/new
   # GET /settings/new.json
   def new
-    @setting = Setting.new
+    allowed = Setting.first.nil?
+    if allowed
+      @setting = Setting.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @setting }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @setting }
+      end
     end
   end
 
@@ -40,15 +47,18 @@ class SettingsController < ApplicationController
   # POST /settings
   # POST /settings.json
   def create
-    @setting = Setting.new(params[:setting])
+    allowed = Setting.first.nil?
+    if allowed
+      @setting = Setting.new(params[:setting])
 
-    respond_to do |format|
-      if @setting.save
-        format.html { redirect_to @setting, notice: 'Setting was successfully created.' }
-        format.json { render json: @setting, status: :created, location: @setting }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @setting.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @setting.save
+          format.html { redirect_to settings_path, notice: 'Setting was successfully created.' }
+          format.json { render json: @setting, status: :created, location: @setting }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @setting.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -60,7 +70,7 @@ class SettingsController < ApplicationController
 
     respond_to do |format|
       if @setting.update_attributes(params[:setting])
-        format.html { redirect_to @setting, notice: 'Setting was successfully updated.' }
+        format.html { redirect_to settings_path, notice: 'Setting was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
