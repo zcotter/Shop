@@ -2,19 +2,24 @@
 
 <div class="hero-unit">
   <h2><span><%= @product.name %></span></h2>
-  <div class="MyGallery">
-    <% for i in 0..(@product.pictures.length - 1) %>
-        <div>
-        <% @picture = @product.pictures[i] %>
-        <%= image_tag @picture.photo.url(:small), :"data-img" => @picture.photo.url(:large)  %>
-        </div>
-    <% end %>
+
+  <div id="pictureCarousel" class="carousel slide" style="background-color: #444">
+    <ol class="carousel-indicators">
+      <li data-target="#pictureCarousel" data-slide-to="0" class="active"></li>
+      <% for i in 1..(@product.pictures.length - 1) %>
+          <li data-target="#pictureCarousel" data-slide-to="<%= i %>"></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner">
+      <div class="active item"><%= image_tag @product.pictures.first.photo.url(:large), :style => "float: center;margin-left: auto;margin-right: auto;" %></div>
+      <% for i in 1..(@product.pictures.length - 1) %>
+          <div class="item"><%= image_tag @product.pictures[i].photo.url(:large), :style => "float: center;margin-left: auto;margin-right: auto;"%></div>
+      <% end %>
+    </div>
+    <a class="carousel-control left" href="#pictureCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#pictureCarousel" data-slide="next">&rsaquo;</a>
   </div>
-  <script>
-      $(function() {
-          $('.MyGallery').SuperBox();
-      });
-  </script>
+
   <p><%= @product.description %></p>
 
   <strong><%= model_class.human_attribute_name(:category) %>:</strong> <%= @product.category.name %>
@@ -24,8 +29,6 @@
   <strong><%= model_class.human_attribute_name(:quantity) %>:</strong> <%= @product.quantity %>
   <div class="clearfix"></div>
   <div class="clearfix"></div>
-
-
 
 
   <div class="text-right">
