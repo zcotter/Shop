@@ -23,8 +23,8 @@ def createSetting()
   Setting.create(rows_per_page: 6,
                  products_per_row: 2,
                  page_width: 90,
-                 html_background: "#DDD",
-                 page_background: "#FFF")
+                 html_background: "#dddddd",
+                 page_background: "#ffffff")
 end
 
 categories = ['animals', 'city', 'nature', 'food', 'technics', 'transport']

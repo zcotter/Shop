@@ -29,12 +29,14 @@
     </div>
     <div class="field">
       <%= f.label :html_background %>
-      <%= f.text_field :html_background %>
+      <input id="setting_html_background" name="setting[html_background]"
+             type="color" value="<%= @setting.html_background %>" />
       <br/>
     </div>
     <div class="field">
       <%= f.label :page_background %>
-      <%= f.text_field :page_background %>
+      <input id="setting_page_background" name="setting[page_background]"
+             type="color" value="<%= @setting.page_background %>" />
       <br/>
     </div>
     <div class="actions">
