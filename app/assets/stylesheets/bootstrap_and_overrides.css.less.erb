@@ -1,0 +1,93 @@
+@import "twitter/bootstrap/bootstrap";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .column {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+  }
+
+  .column-base {
+    margin-top: -15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .row-fluid.base {
+    display: none;
+  }
+}
+
+.column-wrap {
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: -70px;
+  height: 50px;
+  width: 50px;
+}
+<% @settings = Setting.first %>
+    /*primary button color
+        well/hero-unit background color
+        text color
+        nav color
+        nav text color
+        make pagination background match page background
+        */
+.well {
+    background-color: <%= @settings.well_color %>;
+}
+
+.hero-unit {
+    background-color: <%= @settings.well_color %>;
+}
+
+html {
+    background-color: <%= @settings.html_background %>;
+}
+
+body {
+    width: <%= @settings.page_width %>%;
+}
+
+.pagination ul > li > a {
+    background-color: <%= @settings.page_background %>;
+}
+
+.pagination ul >  li.disabled > a {
+    background-color: <%= @settings.page_background %>;
+}
+.pagination ul >  li.active > a {
+    background-color: lighten(<%= @settings.page_background %>, 25%);
+}
+
+@import "twitter/bootstrap/responsive";
+@textColor: <%= @settings.text_color %>;
+@bodyBackground: <%= @settings.page_background %>;
+@navbarBackground: <%= @settings.navbar_background %>;
+@navbarBackgroundHighlight: lighten(@navbarBackground, 25%);
+@navbarLinkColorHover: darken(@navbarBackground, 25%);
+@navbarText: <%= @settings.navbar_text_color %>;
+@navbarBrandColor: @navbarText;
+@navbarLinkColor: @navbarText;
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+@import "fontawesome/font-awesome";
+

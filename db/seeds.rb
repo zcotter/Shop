@@ -24,7 +24,11 @@ def createSetting()
                  products_per_row: 2,
                  page_width: 90,
                  html_background: "#dddddd",
-                 page_background: "#ffffff")
+                 page_background: "#ffffff",
+                 well_color: "#cccccc",
+                 text_color: "#000000",
+                 navbar_background: "#eeeeee",
+                 navbar_text_color: "#000000")
 end
 
 categories = ['animals', 'city', 'nature', 'food', 'technics', 'transport']

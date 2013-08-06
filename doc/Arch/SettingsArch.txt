@@ -4,3 +4,8 @@ products_per_row:integer
 page_width:integer
 html_background:string
 page_background:string
+
+well_color:string
+text_color:string
+navbar_background:string
+navbar_text_color:string

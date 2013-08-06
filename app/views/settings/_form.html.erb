@@ -39,6 +39,30 @@
              type="color" value="<%= @setting.page_background %>" />
       <br/>
     </div>
+    <div class="field">
+      <%= f.label :well_color %>
+      <input id="setting_well_color" name="setting[well_color]"
+             type="color" value="<%= @setting.well_color %>" />
+      <br/>
+    </div>
+    <div class="field">
+      <%= f.label :text_color %>
+      <input id="setting_text_color" name="setting[text_color]"
+             type="color" value="<%= @setting.text_color %>" />
+      <br/>
+    </div>
+    <div class="field">
+      <%= f.label :navbar_background %>
+      <input id="setting_navbar_background" name="setting[navbar_background]"
+             type="color" value="<%= @setting.navbar_background %>" />
+      <br/>
+    </div>
+    <div class="field">
+      <%= f.label :navbar_text_color %>
+      <input id="setting_navbar_text_color" name="setting[navbar_text_color]"
+             type="color" value="<%= @setting.navbar_text_color %>" />
+      <br/>
+    </div>
     <div class="actions">
       <%= f.submit "Update Settings", :class => "btn btn-large btn-primary"%>
     </div>

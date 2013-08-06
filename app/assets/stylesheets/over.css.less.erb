@@ -1,0 +1,9 @@
+<% @settings = Setting.first %>
+@textColor: <%= @settings.text_color %>;
+@bodyBackground: <%= @settings.page_background %>;
+@navbarBackground: <%= @settings.navbar_background %>;
+@navbarBackgroundHighlight: lighten(@navbarBackground, 25%);
+@navbarLinkColorHover: darken(@navbarBackground, 25%);
+@navbarText: <%= @settings.navbar_text_color %>;
+@navbarBrandColor: @navbarText;
+@navbarLinkColor: @navbarText;
