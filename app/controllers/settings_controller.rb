@@ -1,4 +1,8 @@
+require 'erb'
+
 class SettingsController < ApplicationController
+
+  helper SettingsHelper
   # GET /settings
   # GET /settings.json
   def index
@@ -13,6 +17,8 @@ class SettingsController < ApplicationController
     end
 
   end
+
+
 
   # GET /settings/1
   # GET /settings/1.json
@@ -36,6 +42,7 @@ class SettingsController < ApplicationController
         format.html # new.html.erb
         format.json { render json: @setting }
       end
+      reload_css
     end
   end
 
@@ -43,6 +50,7 @@ class SettingsController < ApplicationController
   def edit
     @setting = Setting.find(params[:id])
   end
+
 
   # POST /settings
   # POST /settings.json
@@ -60,6 +68,7 @@ class SettingsController < ApplicationController
           format.json { render json: @setting.errors, status: :unprocessable_entity }
         end
       end
+      reload_css
     end
   end
 
@@ -77,6 +86,20 @@ class SettingsController < ApplicationController
         format.json { render json: @setting.errors, status: :unprocessable_entity }
       end
     end
+    reload_css
+  end
+
+  def reload_css
+    erb_text = File.open("app/views/settings/settings.css.less.erb").read
+    new_less_renderer = ERB.new(erb_text)
+    new_less_text = new_less_renderer.result()
+    puts new_less_text
+    #THIS OVERWRITES THE ERB!!!
+    File.open("app/assets/stylesheets/bootstrap_and_overrides.css.less", 'w') {
+        |f| f.write(new_less_text)
+    }
+    #guard should do its thing
+    #or maybe I should precompile assets
   end
 
   # DELETE /settings/1

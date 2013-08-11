@@ -1,0 +1,93 @@
+@import "twitter/bootstrap/bootstrap";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .column {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+  }
+
+  .column-base {
+    margin-top: -15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .row-fluid.base {
+    display: none;
+  }
+}
+
+.column-wrap {
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: -70px;
+  height: 50px;
+  width: 50px;
+}
+
+
+@import "twitter/bootstrap/responsive";
+
+
+.well {
+    background-color: #c0c0c0;
+}
+
+.hero-unit {
+    background-color: #c0c0c0;
+}
+
+html {
+    background-color: #c0c0c0;
+}
+
+body {
+    width: 90%;
+}
+
+.pagination ul > li > a {
+    background-color: #ffffff;
+}
+
+.pagination ul >  li.disabled > a {
+    background-color: #ffffff;
+}
+.pagination ul >  li.active > a {
+    background-color: lighten(#ffffff, 25%);
+}
+
+
+@textColor: #000000;
+@bodyBackground: #ffffff;
+@navbarBackground: #f3f3f3;
+@navbarBackgroundHighlight: lighten(@navbarBackground, 25%);
+@navbarLinkColorHover: darken(@navbarBackground, 25%);
+@navbarText: #000000;
+@navbarBrandColor: @navbarText;
+@navbarLinkColor: @navbarText;
+
+
+
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+@import "fontawesome/font-awesome";
+
