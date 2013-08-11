@@ -94,12 +94,10 @@ class SettingsController < ApplicationController
     new_less_renderer = ERB.new(erb_text)
     new_less_text = new_less_renderer.result()
     puts new_less_text
-    #THIS OVERWRITES THE ERB!!!
     File.open("app/assets/stylesheets/bootstrap_and_overrides.css.less", 'w') {
         |f| f.write(new_less_text)
     }
     #guard should do its thing
-    #or maybe I should precompile assets
   end
 
   # DELETE /settings/1
