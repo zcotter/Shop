@@ -19,6 +19,7 @@ gem 'less-rails', '2.3.3'
 gem 'guard-less', :git => "git://github.com/zcotter/guard-less.git"
 require 'rbconfig'
 gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
+gem 'simple_form'
 group :production do
   gem 'aws-sdk'
 end
