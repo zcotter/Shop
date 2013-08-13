@@ -15,4 +15,5 @@
 /tmp
 #ignore other stuff
 /public/system/
+/public/assets/
 /.idea
